@@ -20,7 +20,7 @@ body {
 .scene {
     position: relative;
     width: 90vw;
-    max-width: 900px;
+    max-width: 1200px;
 }
 
 /* ภาพพื้นหลัง */
@@ -33,8 +33,8 @@ body {
 /* กล่องเหรียญ + เลข */
 .coin-box {
     position: absolute;
-    right: 150px;
-    top: 100px;           /* 🔼 ตำแหน่งแนวตั้ง ปรับได้ */
+    right: 120px;
+    top: 150px;           /* 🔼 ตำแหน่งแนวตั้ง ปรับได้ */
     display: flex;
     align-items: center;  /* เหรียญกับเลขอยู่แนวเดียวกัน */
     gap: 12px;            /* ระยะห่าง เหรียญ → เลข */
@@ -42,7 +42,7 @@ body {
 
 /* เหรียญ */
 .coin {
-    width: 130px;          /* ขนาดเหรียญใน UI จริง */
+    width: 200px;          /* ขนาดเหรียญใน UI จริง */
     animation: spin 2.5s linear infinite;
 }
 
@@ -50,7 +50,7 @@ body {
 /* ตัวเลข */
 .counter {
     margin-top: 10px;
-    font-size: 100px;
+    font-size: 150px;
     font-weight: bold;
     color: #5a3a1a;
 }
@@ -92,9 +92,9 @@ const counter = document.getElementById('counter');
 
 setInterval(() => {
     value++;
-    if (value > 9999) value = 1;
+    if (value > 99999) value = 1;
     counter.innerText = value.toLocaleString();
-}, 100); // ปรับความเร็วได้
+}, 30); // ปรับความเร็วได้
 </script>
 
 </body>
