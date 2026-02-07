@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus’s O2O Display</title>
+
+<style>
+body {
+    margin: 0;
+    background: #0fb9b1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Prompt', sans-serif;
+}
+
+/* container หลัก */
+.scene {
+    position: relative;
+    width: 90vw;
+    max-width: 900px;
+}
+
+/* ภาพพื้นหลัง */
+.bg {
+    width: 100%;
+    border-radius: 24px;
+    display: block;
+}
+
+/* กล่องเหรียญ + เลข */
+.coin-box {
+    position: absolute;
+    right: 150px;
+    top: 150px;           /* 🔼 ตำแหน่งแนวตั้ง ปรับได้ */
+    display: flex;
+    align-items: center;  /* เหรียญกับเลขอยู่แนวเดียวกัน */
+    gap: 12px;            /* ระยะห่าง เหรียญ → เลข */
+}
+
+/* เหรียญ */
+.coin {
+    width: 60px;          /* ขนาดเหรียญใน UI จริง */
+    animation: spin 2.5s linear infinite;
+}
+
+
+/* ตัวเลข */
+.counter {
+    margin-top: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #5a3a1a;
+}
+
+/* animation หมุน */
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+    <!-- ภาพพื้นหลัง -->
+    <img
+        class="bg"
+        src=
+        
+"https://drive.google.com/thumbnail?id=1jWbGRW4J2tGBTa4PMpJR8WciUAveqQPn&sz=w1920"
+        alt="background"
+    >
+
+    <!-- เหรียญ + ตัวเลข -->
+    <div class="coin-box">
+        <img
+            class="coin"
+            src="https://drive.google.com/thumbnail?id=1Td9kklRkvXqILca_VbzhjwbmeZGqIe-6&sz=w1920"
+            alt="coin"
+        >
+        <div class="counter" id="counter">1</div>
+    </div>
+</div>
+
+<script>
+let value = 1;
+const counter = document.getElementById('counter');
+
+setInterval(() => {
+    value++;
+    if (value > 9999) value = 1;
+    counter.innerText = value.toLocaleString();
+}, 150); // ปรับความเร็วได้
+</script>
+
+</body>
+</html>
